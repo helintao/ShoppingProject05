@@ -24,7 +24,7 @@
                 <img src="./resources/images/name.png">
             </div>
             <div class="login-center-input">
-                <input type="text" name="username" id="username" value=""
+                <input type="text" name="userName" id="username" value=""
                        placeholder="请输入您的用户名" onfocus="this.placeholder=&#39;&#39;"
                        onblur="this.placeholder=&#39;请输入您的用户名&#39;">
                 <div class="login-center-input-text">用户名</div>
@@ -116,17 +116,29 @@
         }
 
         addClass(document.querySelector(".login"), "active")
-        setTimeout(function () {
-            addClass(document.querySelector(".sk-rotating-plane"), "active")
-            document.querySelector(".login").style.display = "none"
-        }, 800)
-        setTimeout(function () {
-            removeClass(document.querySelector(".login"), "active")
-            removeClass(document.querySelector(".sk-rotating-plane"), "active")
-            document.querySelector(".login").style.display = "block"
-            alert("登录成功")
+        addClass(document.querySelector(".sk-rotating-plane"), "active")
+        document.querySelector(".login").style.display = "none"
 
-        }, 5000)
+        //发送Ajax请求
+        $.ajax({
+            url: "toLoginAction",
+            data: {userName: username, password: password, cpacha: cpacha},
+            dataType: "json",
+            type: "post",
+            success: function (obj) {
+                if (obj.type == "success") {
+                    //如果成功就跳转到主要
+                    window.location = "index";
+                } else {
+                    removeClass(document.querySelector(".login"), "active")
+                    removeClass(document.querySelector(".sk-rotating-plane"), "active")
+                    document.querySelector(".login").style.display = "block";
+                    alert(obj.msg);
+                    change();
+                }
+            }
+        });
+
     }
 
     //点击图片验证码图片可以切换验证码
