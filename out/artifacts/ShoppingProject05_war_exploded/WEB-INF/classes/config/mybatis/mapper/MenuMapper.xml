@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 映射文件，存放SQL namespace是映射文件的唯一标志 -->
+<mapper namespace="org.tedu.com.dao.MenuDao">
+
+    <!--更加username查询所有用户-->
+    <insert id="addMenu" parameterType="org.tedu.com.entity.Menu">
+        insert into menu(id,name,parentId,url,icon) values (null,#{name},#{parentId},#{url},#{icon})
+    </insert>
+
+    <select id="findAllMenuList" parameterType="Map" resultType="org.tedu.com.entity.Menu">
+        select * from menu where 1 = 1
+        <if test="name!=null">
+            name like '%${name}%'
+        </if>
+        <if test="parentId!=null">
+            parentId = #{parentId}
+        </if>
+        <if test="offset!=null and pageSize!=null">
+            limit #{offset},#{pageSize}
+        </if>
+    </select>
+
+    <delete id="delete" parameterType="String" >
+        delete from menu where id=#{id}
+    </delete>
+
+    <update id="updateMenu" parameterType="org.tedu.com.entity.Menu">
+        update menu set name=#{name},parentId=#{parentId},url=#{url},icon=#{icon} where id=#{id}
+    </update>
+
+</mapper>

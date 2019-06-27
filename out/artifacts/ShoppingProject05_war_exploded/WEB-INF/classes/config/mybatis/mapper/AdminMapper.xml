@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 映射文件，存放SQL namespace是映射文件的唯一标志 -->
+<mapper namespace="org.tedu.com.dao.AdminDao">
+
+    <select id="findAllAdminList" parameterType="Map" resultType="org.tedu.com.entity.Admin">
+        select * from admin where 1 = 1
+        <if test="userName!=null">
+            name like '%${userName}%'
+        </if>
+        <if test="offset!=null and pageSize!=null">
+            limit #{offset},#{pageSize}
+        </if>
+    </select>
+
+    <insert id="addAdmin" parameterType="org.tedu.com.entity.Admin">
+        insert into admin(id,username,password,email,address,phone) values (null,#{userName},#{password},#{email},#{address},#{phone})
+    </insert>
+
+    <delete id="deleteAdmin" parameterType="String">
+        delete from admin where id=#{id}
+    </delete>
+
+    <update id="updateAdmin" parameterType="org.tedu.com.entity.Admin">
+        update admin set username=#{userName},password=#{password},email=#{email},address=#{address},phone=#{phone} where id=#{id}
+    </update>
+
+    <select id="findAdminForUserName" parameterType="String" resultType="org.tedu.com.entity.Admin">
+        select * from admin where username=#{userName}
+    </select>
+
+</mapper>
