@@ -76,20 +76,20 @@
         <table>
             <tr>
                 <td width="60" align="right">菜单名称:</td>
-                <td><input type="text" id="edit-name" name="edit-name" class="wu-text easyui-validatebox"
+                <td><input type="text" id="edit-name" name="name" class="wu-text easyui-validatebox"
                            data-options="required:true,missingMessage:'请填写菜单名称'"/></td>
             </tr>
             <tr>
                 <td align="right">父级菜单:</td>
-                <td><input type="text" id="edit-parentId" name="edit-parentId" class="wu-text"/></td>
+                <td><input type="text" id="edit-parentId" name="parentId" class="wu-text"/></td>
             </tr>
             <tr>
                 <td align="right">菜单URL:</td>
-                <td><input type="text" id="edit-url" name="edit-url" class="wu-text"/></td>
+                <td><input type="text" id="edit-url" name="url" class="wu-text"/></td>
             </tr>
             <tr>
                 <td align="right">菜单图标:</td>
-                <td><input type="text" id="edit-icon" name="edit-icon" class="wu-text  easyui-validatebox"
+                <td><input type="text" id="edit-icon" name="icon" class="wu-text  easyui-validatebox"
                            data-options="required:true,missingMessage:'请选择菜单图标'"/></td>
             </tr>
         </table>

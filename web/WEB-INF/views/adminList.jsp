@@ -60,25 +60,25 @@
         <table>
             <tr>
                 <td width="60" align="right">用户名:</td>
-                <td><input type="text" id="edit-userName" name="edit-userName" class="wu-text easyui-validatebox"
+                <td><input type="text" id="edit-userName" name="userName" class="wu-text easyui-validatebox"
                            data-options="required:true,missingMessage:'请填写用户名'"/></td>
             </tr>
             <tr>
                 <td align="right">密码:</td>
-                <td><input type="text" id="edit-password" name="edit-password" class="wu-text  easyui-validatebox"
+                <td><input type="text" id="edit-password" name="password" class="wu-text  easyui-validatebox"
                            data-options="required:true,missingMessage:'请填写密码'"/></td>
             </tr>
             <tr>
                 <td align="right">邮箱:</td>
-                <td><input type="text" id="edit-email" name="edit-email" class="wu-text"/></td>
+                <td><input type="text" id="edit-email" name="email" class="wu-text"/></td>
             </tr>
             <tr>
                 <td align="right">地址:</td>
-                <td><input type="text" id="edit-address" name="edit-address" class="wu-text "/></td>
+                <td><input type="text" id="edit-address" name="address" class="wu-text "/></td>
             </tr>
             <tr>
                 <td align="right">手机:</td>
-                <td><input type="text" id="edit-phone" name="edit-phone" class="wu-text "/></td>
+                <td><input type="text" id="edit-phone" name="phone" class="wu-text "/></td>
             </tr>
         </table>
     </form>

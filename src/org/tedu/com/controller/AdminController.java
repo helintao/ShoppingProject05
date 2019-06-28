@@ -117,6 +117,7 @@ public class AdminController {
     @ResponseBody
     public Map<String,String> updateMenu(Admin admin){
         Map<String,String>  map =new HashMap<String, String>();
+        System.out.println(admin.toString());
         //对menu进行判断
         if (admin == null) {
             map.put("type", "error");
